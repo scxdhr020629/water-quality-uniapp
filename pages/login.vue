@@ -3,7 +3,7 @@
     <view class="logo-content align-center justify-center flex">
       <image style="width: 100rpx;height: 100rpx;" :src="globalConfig.appInfo.logo" mode="widthFix">
       </image>
-      <text class="title">若依移动端登录</text>
+      <text class="title">WQS登录</text>
     </view>
     <view class="login-form-content">
       <view class="input-item flex align-center">
@@ -29,9 +29,9 @@
         <text @click="handleUserRegister" class="text-blue">立即注册</text>
       </view>
       <view class="xieyi text-center">
-        <text class="text-grey1">登录即代表同意</text>
+<!--        <text class="text-grey1">登录即代表同意</text>
         <text @click="handleUserAgrement" class="text-blue">《用户协议》</text>
-        <text @click="handlePrivacy" class="text-blue">《隐私协议》</text>
+        <text @click="handlePrivacy" class="text-blue">《隐私协议》</text> -->
       </view>
     </view>
      
@@ -47,7 +47,7 @@
         codeUrl: "",
         captchaEnabled: true,
         // 用户注册开关
-        register: false,
+        register: true,
         globalConfig: getApp().globalData.config,
         loginForm: {
           username: "admin",

@@ -29,19 +29,19 @@
       <view class="mine-actions grid col-4 text-center">
         <view class="action-item" @click="handleJiaoLiuQun">
           <view class="iconfont icon-friendfill text-pink icon"></view>
-          <text class="text">交流群</text>
+          <text class="text">设备连接</text>
         </view>
         <view class="action-item" @click="handleBuilding">
           <view class="iconfont icon-service text-blue icon"></view>
-          <text class="text">在线客服</text>
+          <text class="text">检测图表</text>
         </view>
         <view class="action-item" @click="handleBuilding">
           <view class="iconfont icon-community text-mauve icon"></view>
-          <text class="text">反馈社区</text>
+          <text class="text">编辑资料</text>
         </view>
         <view class="action-item" @click="handleBuilding">
           <view class="iconfont icon-dianzan text-green icon"></view>
-          <text class="text">点赞我们</text>
+          <text class="text">联系我们</text>
         </view>
       </view>
 
