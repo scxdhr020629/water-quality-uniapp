@@ -15,7 +15,7 @@
           <uni-data-checkbox v-model="user.sex" :localdata="sexs" />
         </uni-forms-item>
       </uni-forms>
-      <button type="primary" @click="submit">提交</button>
+      <button class="submit_btn" type="primary" @click="submit">提交</button>
     </view>
   </view>
 </template>
@@ -123,5 +123,8 @@
     height: 35px;
     line-height: 35px;
     margin-left: 10px;
+  }
+  .submit_btn{
+	  background-color: #0081ff !important;
   }
 </style>
