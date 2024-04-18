@@ -10,6 +10,9 @@ const user = {
   state: {
     token: getToken(),
     name: storage.get(constant.name),
+	
+	id: storage.get(constant.id),
+	
     avatar: storage.get(constant.avatar),
     roles: storage.get(constant.roles),
     permissions: storage.get(constant.permissions)
@@ -23,6 +26,10 @@ const user = {
       state.name = name
       storage.set(constant.name, name)
     },
+	SET_ID: (state, id) => {  // 设置id数据
+				state.id = id
+				storage.set(constant.id, id)
+	},
     SET_AVATAR: (state, avatar) => {
       state.avatar = avatar
       storage.set(constant.avatar, avatar)
@@ -62,6 +69,12 @@ const user = {
           const user = res.user
           const avatar = (user == null || user.avatar == "" || user.avatar == null) ? require("@/static/images/profile.jpg") : baseUrl + user.avatar
           const username = (user == null || user.userName == "" || user.userName == null) ? "" : user.userName
+		  
+		  // 添加userId判读是否为空
+		  const userid = (user == null || user.userId == "" || user.userId == null) ? "" : user.userId
+		
+		  
+		  
           if (res.roles && res.roles.length > 0) {
             commit('SET_ROLES', res.roles)
             commit('SET_PERMISSIONS', res.permissions)
@@ -69,6 +82,10 @@ const user = {
             commit('SET_ROLES', ['ROLE_DEFAULT'])
           }
           commit('SET_NAME', username)
+		  
+		  // 添加提交 user_id
+		  commit('SET_ID', userid)
+		  
           commit('SET_AVATAR', avatar)
           resolve(res)
         }).catch(error => {

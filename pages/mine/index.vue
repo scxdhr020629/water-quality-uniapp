@@ -27,7 +27,7 @@
 
     <view class="content-section">
       <view class="mine-actions grid col-4 text-center">
-        <view class="action-item" @click="handleJiaoLiuQun">
+        <view class="action-item" @click="handleMqttC">
           <view class="iconfont icon-friendfill text-pink icon"></view>
           <text class="text">设备连接</text>
         </view>
@@ -41,7 +41,7 @@
         </view>
         <view class="action-item" @click="handleBuilding">
           <view class="iconfont icon-dianzan text-green icon"></view>
-          <text class="text">联系我们</text>
+          <text class="text">反馈问题</text>
         </view>
       </view>
 
@@ -123,8 +123,9 @@
       handleAbout() {
         this.$tab.navigateTo('/pages/mine/about/index')
       },
-      handleJiaoLiuQun() {
-        this.$modal.showToast('QQ群：①133713780、②146013835')
+      handleMqttC() {
+        // this.$modal.showToast('QQ群：①133713780、②146013835')
+		this.$tab.navigateTo('/pages/mqttc/index')
       },
       handleBuilding() {
         this.$modal.showToast('模块建设中~')

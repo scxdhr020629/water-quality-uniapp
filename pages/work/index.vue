@@ -1,183 +1,73 @@
 <template>
-  <view class="work-container">
-    <!-- 轮播图 -->
-    <uni-swiper-dot class="uni-swiper-dot-box" :info="data" :current="current" field="content">
-      <swiper class="swiper-box" :current="swiperDotIndex" @change="changeSwiper">
-        <swiper-item v-for="(item, index) in data" :key="index">
-          <view class="swiper-item" @click="clickBannerItem(item)">
-            <image :src="item.image" mode="aspectFill" :draggable="false" />
-          </view>
-        </swiper-item>
-      </swiper>
-    </uni-swiper-dot>
-
-    <!-- 宫格组件 -->
-    <uni-section title="系统管理" type="line"></uni-section>
-    <view class="grid-body">
-      <uni-grid :column="4" :showBorder="false" @change="changeGrid">
-        <uni-grid-item>
-          <view class="grid-item-box">
-            <uni-icons type="person-filled" size="30"></uni-icons>
-            <text class="text">用户管理</text>
-          </view>
-        </uni-grid-item>
-        <uni-grid-item>
-          <view class="grid-item-box">
-            <uni-icons type="staff-filled" size="30"></uni-icons>
-            <text class="text">角色管理</text>
-          </view>
-        </uni-grid-item>
-        <uni-grid-item>
-          <view class="grid-item-box">
-            <uni-icons type="color" size="30"></uni-icons>
-            <text class="text">菜单管理</text>
-          </view>
-        </uni-grid-item>
-        <uni-grid-item>
-          <view class="grid-item-box">
-            <uni-icons type="settings-filled" size="30"></uni-icons>
-            <text class="text">部门管理</text>
-          </view>
-        </uni-grid-item>
-        <uni-grid-item>
-          <view class="grid-item-box">
-            <uni-icons type="heart-filled" size="30"></uni-icons>
-            <text class="text">岗位管理</text>
-          </view>
-        </uni-grid-item>
-        <uni-grid-item>
-          <view class="grid-item-box">
-            <uni-icons type="bars" size="30"></uni-icons>
-            <text class="text">字典管理</text>
-          </view>
-        </uni-grid-item>
-        <uni-grid-item>
-          <view class="grid-item-box">
-            <uni-icons type="gear-filled" size="30"></uni-icons>
-            <text class="text">参数设置</text>
-          </view>
-        </uni-grid-item>
-        <uni-grid-item>
-          <view class="grid-item-box">
-            <uni-icons type="chat-filled" size="30"></uni-icons>
-            <text class="text">通知公告</text>
-          </view>
-        </uni-grid-item>
-        <uni-grid-item>
-          <view class="grid-item-box">
-            <uni-icons type="wallet-filled" size="30"></uni-icons>
-            <text class="text">日志管理</text>
-          </view>
-        </uni-grid-item>
-      </uni-grid>
-    </view>
+  <view class="work-container" :class="bgClass">
+    <text class="score">得分: {{ score }}</text>
+    <text class="info">TDS: {{ tds }}</text>
+    <text class="info">PH: {{ ph }}</text>
+    <text class="info">温度: {{ temperature }}</text>
   </view>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        current: 0,
-        swiperDotIndex: 0,
-        data: [{
-            image: '/static/images/banner/banner01.jpg'
-          },
-          {
-            image: '/static/images/banner/banner02.jpg'
-          },
-          {
-            image: '/static/images/banner/banner03.jpg'
-          }
-        ]
-      }
-    },
-    methods: {
-      clickBannerItem(item) {
-        console.info(item)
-      },
-      changeSwiper(e) {
-        this.current = e.detail.current
-      },
-      changeGrid(e) {
-        this.$modal.showToast('模块建设中~')
+export default {
+  data() {
+    return {
+      score: 85, // 设置默认得分
+      tds: 'xxx', // 设置默认TDS值
+      ph: 'xxx', // 设置默认PH值
+      temperature: 'xxx' // 设置默认温度值
+    };
+  },
+  created() {
+    // 这里可以根据实际情况获取得分、TDS、PH和温度的值，然后更新data中对应的属性值
+    // 可以通过网络请求、用户输入等方式获取
+    this.score = 70; // 示例：假设得分是92
+    this.tds = '0'; // 示例：假设TDS值是xxx
+    this.ph = '10.0'; // 示例：假设PH值是xxx
+    this.temperature = '25.7'; // 示例：假设温度值是xxx
+  },
+  computed: {
+    bgClass() {
+      if (this.score >= 90) {
+        return 'bg-blue'; // 得分高于90为蓝色背景
+      } else if (this.score >= 60) {
+        return 'bg-yellow'; // 得分在60到90之间为黄色背景
+      } else {
+        return 'bg-red'; // 得分低于60为红色背景
       }
     }
   }
+};
 </script>
 
-<style lang="scss">
-  /* #ifndef APP-NVUE */
-  page {
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    background-color: #fff;
-    min-height: 100%;
-    height: auto;
-  }
+<style>
+.work-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
 
-  view {
-    font-size: 14px;
-    line-height: inherit;
-  }
+.score {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
 
-  /* #endif */
+.info {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
 
-  .text {
-    text-align: center;
-    font-size: 26rpx;
-    margin-top: 10rpx;
-  }
+.bg-blue {
+  background-color: blue;
+}
 
-  .grid-item-box {
-    flex: 1;
-    /* #ifndef APP-NVUE */
-    display: flex;
-    /* #endif */
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 15px 0;
-  }
+.bg-yellow {
+  background-color: yellow;
+}
 
-  .uni-margin-wrap {
-    width: 690rpx;
-    width: 100%;
-    ;
-  }
-
-  .swiper {
-    height: 300rpx;
-  }
-
-  .swiper-box {
-    height: 150px;
-  }
-
-  .swiper-item {
-    /* #ifndef APP-NVUE */
-    display: flex;
-    /* #endif */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    height: 300rpx;
-    line-height: 300rpx;
-  }
-
-  @media screen and (min-width: 500px) {
-    .uni-swiper-dot-box {
-      width: 400px;
-      /* #ifndef APP-NVUE */
-      margin: 0 auto;
-      /* #endif */
-      margin-top: 8px;
-    }
-
-    .image {
-      width: 100%;
-    }
-  }
+.bg-red {
+  background-color: red;
+}
 </style>
