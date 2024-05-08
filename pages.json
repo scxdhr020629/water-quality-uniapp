@@ -1,5 +1,4 @@
 {
-
   "pages": [{
     "path": "pages/login",
     "style": {
@@ -13,8 +12,8 @@
   }, {
     "path": "pages/index",
     "style": {
-      "navigationBarTitleText": "若依移动端框架",
-      "navigationStyle": "custom"
+      "navigationBarTitleText": "WQS框架"
+      // "navigationStyle": "custom"
     }
   }, {
     "path": "pages/work/index",

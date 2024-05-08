@@ -58,12 +58,12 @@
             <view>常见问题</view>
           </view>
         </view>
-        <view class="list-cell list-cell-arrow" @click="handleAbout">
+        <!-- <view class="list-cell list-cell-arrow" @click="handleAbout">
           <view class="menu-item-box">
             <view class="iconfont icon-aixin menu-icon"></view>
             <view>关于我们</view>
           </view>
-        </view>
+        </view> -->
         <view class="list-cell list-cell-arrow" @click="handleToSetting">
           <view class="menu-item-box">
             <view class="iconfont icon-setting menu-icon"></view>
