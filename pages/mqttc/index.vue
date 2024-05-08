@@ -84,12 +84,17 @@ export default {
 
 			   const data = JSON.parse(message.toString());
 			   
-			   console.log(data.TDS);
-			   console.log(data.PH);
-			   console.log(data.TEMP);
+			   // console.log(data.TDS);
+			   // console.log(data.PH);
+			   // console.log(data.TEMP);
+			   sharedData.SCORE = data.SCORE;
 			   sharedData.TDS = data.TDS;
 			   sharedData.PH = data.PH;
 			   sharedData.TEMP = data.TEMP;
+			   console.log(sharedData.SCORE);
+			   console.log(sharedData.TDS);
+			   console.log(sharedData.PH);
+			   console.log(sharedData.TEMP);
 			 }); 
 		  }
 			  
@@ -120,6 +125,7 @@ export default {
     }
   }
 };
+
 </script>
 
 <style>

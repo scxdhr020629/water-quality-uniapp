@@ -12,5 +12,8 @@
             "前端组件",
             "通用组件"
         ]
+    },
+    "dependencies": {
+        "@vue/reactivity": "^3.4.27"
     }
 }
