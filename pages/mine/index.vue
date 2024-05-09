@@ -31,11 +31,11 @@
           <view class="iconfont icon-friendfill text-pink icon"></view>
           <text class="text">设备连接</text>
         </view>
-        <view class="action-item" @click="handleBuilding">
+        <view class="action-item" @click="handleWorkIndex">
           <view class="iconfont icon-service text-blue icon"></view>
           <text class="text">检测图表</text>
         </view>
-        <view class="action-item" @click="handleBuilding">
+        <view class="action-item" @click="handleToEditInfo">
           <view class="iconfont icon-community text-mauve icon"></view>
           <text class="text">编辑资料</text>
         </view>
@@ -123,10 +123,12 @@
       handleAbout() {
         this.$tab.navigateTo('/pages/mine/about/index')
       },
-      handleMqttC() {
-        // this.$modal.showToast('QQ群：①133713780、②146013835')
+      handleMqttC() {  
 		this.$tab.navigateTo('/pages/mqttc/index')
       },
+	  handleWorkIndex() {
+	  		this.$tab.navigateTo('/pages/work/index')
+	  },
       handleBuilding() {
         this.$modal.showToast('模块建设中~')
       }

@@ -69,6 +69,7 @@ export default {
 			 // console.log("userId "+this.userId);
 			 client.on('connect', function () {
 			   console.log('连接成功');
+			   that.$modal.showToast('连接成功')
 			   client.subscribe(that.topicSub, function (err) {
 			     if (!err) {
 			       console.log('订阅成功');
@@ -76,10 +77,13 @@ export default {
 			   });
 			 }).on('reconnect', function (error) {
 			   console.log('正在重连...', that.topic);
+			   that.$modal.showToast('正在重连')
 			 }).on('error', function (error) {
 			   console.log('连接失败...', error);
+			   that.$modal.showToast('连接失败')
 			 }).on('end', function () {
 			   console.log('连接断开');
+			   that.$modal.showToast('连接断开')
 			 }).on('message', function (topicSub, message) {
 
 			   const data = JSON.parse(message.toString());
@@ -101,6 +105,7 @@ export default {
 		  else {
 			  // 不满足条件 弹出来一个对话框
 			  console.log("设备部门id和用户部门id不匹配，无法连接");
+			  that.$modal.showToast('部门不匹配，无法连接');
 		  }
 		  
 		  
