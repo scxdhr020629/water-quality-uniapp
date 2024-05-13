@@ -63,16 +63,16 @@ export default {
   },
   computed: {
     displayScore() {
-      return this.currentScore;
+      return this.currentScore.toFixed(2);
     },
     displayTds() {
-      return this.currentTds;
+      return this.currentTds.toFixed(2);
     },
     displayPh() {
-      return this.currentPh;
+      return this.currentPh.toFixed(2);
     },
     displayTemperature() {
-      return this.currentTemp;
+      return this.currentTemp.toFixed(2);
     },
     bgClass() {
       if (this.currentScore >= 90) {
